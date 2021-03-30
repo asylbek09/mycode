@@ -8,11 +8,7 @@ print( switch["hostname"] )
 print( switch["ip"] )
 
 ## request a 'fake' key
-# print( switch["lynx"] )   # Be sure to comment out this line,
-                            # or your program will CONTINUE to fail!
-                            # if a KEY is requested that does not exist,
-                            # an ERROR will be thrown!
-
+# print( switch["lynx"] )
 ## request a 'fake' key with .get() method
 print( "First test - .get()" )
 print( switch.get("lynx") )
