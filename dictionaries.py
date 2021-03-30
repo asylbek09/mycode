@@ -23,4 +23,3 @@ heroes=  {
 
 print(f"{name.capitalize()}'s {stat.capitalize()} is: {heroes[name][stat]}")
 #print(name.capitalize() + "'s " + stat.capitalize() + " is: " + heroes[name][stat])
-
