@@ -2,13 +2,18 @@
 import ipaddress
 
 ipchk = input("Apply an IP address: ") # this line now prompts the user for input
+IPvalidated = False
 
-# a provided string will test true
+try:
+    ipaddress.IPv4Network(ipchk)
+    IPvalidated = True
+
+except ValueError:
+    IPvalidated = False
+
 if ipchk == "192.168.70.1":
    print("Looks like the IP address of the Gateway was set: " + ipchk + " This is not recommended.")
-# elif ipchk:
-#    print("Looks like the IP address was set: " + ipchk)
-elif ipaddress.ip_address(ipchk):
-    print("This is real ip address: " + ipchk)
+elif IPvalidated:
+   print("Looks like the IP address was set: " + ipchk)
 else:
     print("You did not provide input.")
