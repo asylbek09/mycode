@@ -6,9 +6,9 @@ def getCapitals():
 
     capitals_json = open ('capitals.json', "r")
 
-    capitals_dict = json.load(capitals_json)
+    capitals_data = json.load(capitals_json)
 
-    return capitals_dict
+    return capitals_data
 
 def prompt():
     client_prompt = input("To play the game enter <y> or <anything> to exit ")
