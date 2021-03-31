@@ -24,7 +24,7 @@ def findCapital(client_prompt):
     country = randCountry['country']
     city = randCountry['capital']
 
-    print(randCountry)
+   # print(randCountry)
     while client_prompt:
             client_choice = input("What is the capital of: " + country + "? ")
 
