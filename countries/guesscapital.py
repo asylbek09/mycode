@@ -11,20 +11,36 @@ def getCapitals():
     return capitals_dict
 
 def prompt():
+    client_prompt = input("To play the game enter <y> or <anything> to exit ")
+
+    if client_prompt == 'y':
+        findCapital(client_prompt)
+    else:
+        printThank()
+
+def findCapital(client_prompt):
     capitals = getCapitals()
     randCountry = random.choice(capitals)
+    country = randCountry['country']
+    city = randCountry['capital']
+
     print(randCountry)
+    while client_prompt:
+            client_choice = input("What is the capital of: " + country + "? ")
 
-    client_choice = input("What is the capital of: " + randCountry['country'] + "? ")
+            if client_choice.lower() == city.lower():
+                print(f"Congratulations, {country}'s capital is {city}")
+                try_again = input("Do you want to try again? Enter <y> to play again or <anything> to exit ")
+                if try_again == 'y':
+                    findCapital(try_again)
+                else:
+                    print("Thank ")
+                break
+            else:
+                printThank()
 
-    while client_choice:
-        client_choice = input("What is the capital of: " + randCountry['country'] + "? ")
-
-        if client_choice.lower() == randCountry['capital'].lower():
-            print(f"Congratulations, {randCountry['country']}'s capital is {randCountry['capital']}")
-            break
-        else:
-            print("Try again!")
+def printThank():
+    print("Thank you and have a great day!")
 
 def main():
     prompt()
