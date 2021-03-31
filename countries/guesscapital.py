@@ -17,10 +17,14 @@ def prompt():
 
     client_choice = input("What is the capital of: " + randCountry['country'] + "? ")
 
-    if client_choice.lower() == randCountry['capital'].lower():
-        print(f"Congratulations, {randCountry['country']}'s capital is {randCountry['capital']}")
-    else:
-        print("Try again!")
+    while client_choice:
+        client_choice = input("What is the capital of: " + randCountry['country'] + "? ")
+
+        if client_choice.lower() == randCountry['capital'].lower():
+            print(f"Congratulations, {randCountry['country']}'s capital is {randCountry['capital']}")
+            break
+        else:
+            print("Try again!")
 
 def main():
     prompt()
