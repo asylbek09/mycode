@@ -30,14 +30,14 @@ def findCapital(client_prompt):
 
             if client_choice.lower() == city.lower():
                 print(f"Congratulations, {country}'s capital is {city}")
-                try_again = input("Do you want to try again? Enter <y> to play again or <anything> to exit ")
+                try_again = input("Do you want to play again? Enter <y> to play or <anything> to exit ")
                 if try_again == 'y':
                     findCapital(try_again)
                 else:
-                    print("Thank ")
+                    printThank()
                 break
             else:
-                printThank()
+                print("Try again please!")
 
 def printThank():
     print("Thank you and have a great day!")
