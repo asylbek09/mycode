@@ -14,5 +14,3 @@ farms = [{"name": "NE Farm", "agriculture": ["sheep", "cows", "pigs", "chickens"
          {"name": "W Farm", "agriculture": ["pigs", "chickens", "llamas"]},
          {"name": "SE Farm", "agriculture": ["chickens", "carrots", "celery"]}]
 
-for f in farms:
-    print(f"Farms: {f}")
