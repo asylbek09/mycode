@@ -8,7 +8,7 @@ def clearScreen():
 
 def getCapitals():
 
-    capitals_json = open ('C:/Users/asylb/OneDrive/Documents/TLG/Python/mycode/countries/capitals.json', "r")
+    capitals_json = open ('capitals.json', "r")
 
     capitals_data = json.load(capitals_json)
 
@@ -29,7 +29,7 @@ def findCapital(client_prompt):
     city = randCountry['capital']
     counter = 5
 
-    print(randCountry)
+   # print(randCountry)
     while client_prompt:
             client_choice = input("What is the capital of: " + country + "? ")
 
