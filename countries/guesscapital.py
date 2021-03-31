@@ -4,7 +4,7 @@ import random
 
 def getCapitals():
 
-    capitals_json = open ('C:/Users/asylb/OneDrive/Documents/TLG/Python/mycode/countries/capitals.json', "r")
+    capitals_json = open ('capitals.json', "r")
 
     capitals_dict = json.load(capitals_json)
 
