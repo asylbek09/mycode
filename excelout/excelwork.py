@@ -10,7 +10,9 @@ import pyexcel
 def get_ip_data():
     input_ip = input("\nWhat is the IP address? ")
     input_driver = input("What is the driver associated with this device? ")
-    d = {"IP": input_ip, "driver": input_driver}
+    input_name = input("What is your name? ")
+    input_machine = input("What model of your machine? ")
+    d = {"IP": input_ip, "driver": input_driver, "name": input_name, "machine": input_machine}
     return d
 
 ## This code is left turned off, but might help visualize how pyexcel works with data sets.
@@ -36,4 +38,3 @@ filename = input("\nWhat is the name of the *.xls file? ")
 pyexcel.save_as(records=mylistdict, dest_file_name=f'{filename}.xls')
 
 print("The file " + filename + ".xls should be in your local directory")
-
