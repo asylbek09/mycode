@@ -16,6 +16,19 @@ def divide(num1, num2):
     result = num1 / num2
     print(f"Result: {result}\n")
 
+def logic(choice, input1, input2):
+    if(choice == '1'):
+        add(input1, input2)
+    elif(choice == '2'):
+        subtract(input1, input2)
+    elif(choice == '3'):
+        multiply(input1, input2)
+    elif(choice == '4'):
+        if input2 == 0:
+            print("Can't divide by 0\n")
+        else:
+            divide(input1, input2)
+
 def main():
 
     trycalc = input('''Welcome to Simple Calculator!
@@ -36,17 +49,7 @@ def main():
             input1 = int(input("Enter first number: "))
             input2 = int(input("Enter second number: "))
 
-            if(choice == '1'):
-                add(input1, input2)
-            elif(choice == '2'):
-                subtract(input1, input2)
-            elif(choice == '3'):
-                multiply(input1, input2)
-            elif(choice == '4'):
-                if input2 == 0:
-                    print("Can't divide by 0")
-                else:
-                    divide(input1, input2)
+            logic(choice, input1, input2)
         else:
             print("Try again with correct inputs")
                 
