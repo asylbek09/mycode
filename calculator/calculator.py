@@ -2,19 +2,19 @@
 
 def add(num1, num2):
     result = num1 + num2
-    print(f"Result: {result}\n")
+    print(f"Result: {num1} + {num2} = {result}\n")
 
 def subtract(num1, num2):
     result = num1 - num2
-    print(f"Result: {result}\n")
+    print(f"Result: {num1} - {num2} = {result}\n")
 
 def multiply(num1, num2):
     result = num1 * num2
-    print(f"Result: {result}\n")
+    print(f"Result: {num1} * {num2} = {result}\n")
 
 def divide(num1, num2):
     result = num1 / num2
-    print(f"Result: {result}\n")
+    print(f"Result: {num1} / {num2} = {result}\n")
 
 def logic(choice, input1, input2):
     if(choice == '1'):
@@ -52,5 +52,6 @@ def main():
             logic(choice, input1, input2)
         else:
             print("Try again with correct inputs")
-                
-main()
+
+if __name__ == '__main__':
+    main()      
