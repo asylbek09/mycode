@@ -3,7 +3,7 @@ swapper = Cheat_Swapper()
 loaded_dice = Cheat_Loaded_Dice()
 swapper_score = 0
 loaded_dice_score = 0
-number_of_games = 100000
+number_of_games = 1000000
 game_number = 0
 print("Simulation running")
 print("==================")
