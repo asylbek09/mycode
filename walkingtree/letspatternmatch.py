@@ -10,7 +10,7 @@ def find(pattern, path):
                 result.append(os.path.join(root, name))
     return result
 
-lookfor = input("What pattern am I looking for (Example: *.txt or *.cfg ")
+lookfor = input("What pattern am I looking for (Example: *.txt or *.cfg) ")
 lookwhere = input("What is the path in which I should search? ")
 
 print(find(lookfor, lookwhere))
