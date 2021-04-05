@@ -69,9 +69,10 @@ def combat(rand_enemy, my_health, my_power):
                 inventory.remove(weapon)
         elif action.lower() == 'h':
             # health increased if helmet, armor or yogurt gets picked up
-            life = input(f"Select item to boost health: {inventory} ")
-            if life in inventory:
-                my_health += health[life]['health']
+            strength = input(f"Select item to boost health: {inventory} ")
+            if strength in inventory:
+                my_health += life[strength]['health']
+                inventory.remove(strength)
         elif action.lower() == 'q':
             break
 
