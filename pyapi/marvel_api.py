@@ -1,9 +1,10 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 import argparse
 import time
+import requests
 import hashlib
 
-import requests
+# to run the code enter: python3 .\marvel_api.py --dev C:/Users/asylb/OneDrive/Documents/TLG/Python/marvel.priv --pub C:/Users/asylb/OneDrive/Documents/TLG/Python/marvel.pub --hero wolverine
 
 ## Define the API here
 XAVIER = 'http://gateway.marvel.com/v1/public/characters'
@@ -23,7 +24,7 @@ def marvelcharcall(stampystamp, hashyhash, pkeyz, lookmeup):
     return r.json()
 
     
-def main():
+def main():           
     
     ## harvest private key
     with open(args.dev) as mccoy:
@@ -40,7 +41,7 @@ def main():
     cerebro = hashbuilder(nightcrawler, beast, storm)
 
     ## call the API with marvelcharcall(timestamp, hash, publickey, character)
-    uncannyxmen = marvelcharcall(nightcrawler, cerebro, storm, "Wolverine")
+    uncannyxmen = marvelcharcall(nightcrawler, cerebro, storm, args.hero)
     
     ## display results
     print(uncannyxmen)
@@ -48,9 +49,13 @@ def main():
 ## Define arguments to collect
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--dev', \
-      help='Provide the /path/to/file.priv containing Marvel private developer key')
-    parser.add_argument('--pub', \
-      help='Provide the /path/to/file.pub containing Marvel public developer key')
+    parser.add_argument('--dev', help='Provide the /path/to/file.priv \
+      containing Marvel private developer key')
+    parser.add_argument('--pub', help='Provide the /path/to/file.pub \
+      containing Marvel public developer key')
+    
+    ## The line below is NEW! This allows us to pass the lookup character
+    parser.add_argument('--hero', \
+      help='Character to search for within the Marvel universe')
     args = parser.parse_args()
     main()
