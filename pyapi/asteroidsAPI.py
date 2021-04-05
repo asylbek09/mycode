@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import requests
+import pprint
 
 ## Define NEOW URL
 NEOURL = "https://api.nasa.gov/neo/rest/v1/feed?"
@@ -20,20 +21,22 @@ def main():
     nasacreds = returncreds()
 
     ## update the date below, if you like
-    startdate = "start_date=2019-11-11"
+    startdate = "start_date=" + input("Enter start date in format: yyyy-mm-dd ")
 
+    enddate = "end_date=" + input("Enter end date in format: yyyy-mm-dd ")
     ## the value below is not being used in this
     ## version of the script
     # enddate = "end_date=END_DATE"
 
     # make a request with the request library
-    neowrequest = requests.get(NEOURL + startdate + "&" + nasacreds)
+    neowrequest = requests.get(NEOURL + startdate + "&" + enddate + "&" + nasacreds)
 
     # strip off json attachment from our response
     neodata = neowrequest.json()
 
     ## display NASAs NEOW data
-    print(neodata)
+    #print(neodata)
+    pprint.pprint(neodata)
 
 if __name__ == "__main__":
     main()
