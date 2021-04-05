@@ -106,15 +106,20 @@ Professor X, Beast, Wolverine, Cyclops, Phoenix
     print('---------------------------------')
     
     #start the player in the chosen city
-    currentcity = input('''Where do you want to start your adventure?
-Enter: Downtown, River North, Old Town, Streeterville, River West
-United Center, Greektown, Grant Park, Lake Michigan, Pilsen, 
-South Loop, Field Museum, Chinatown
+    selectCity = input('''Where do you want to start your adventure?
+Enter city <name> or <r> to start from random place: 
+Downtown, River North, Old Town, Streeterville, River West
+United Center, Greektown, Grant Park, Lake Michigan, 
+Pilsen, South Loop, Field Museum, Chinatown
 ---------------------------------
 >''').title()
         
-    while currentcity not in city:
-        currentcity = input("Please enter correct city name from the list! ").title()
+    while selectCity not in city and selectCity != 'R':
+        selectCity = input("Please enter <name> or <r>! ").title()
+    if selectCity == 'R':
+        currentcity = random.choice(list(city))
+    else:
+        currentcity = selectCity
         
     #loop forever
     while True:
@@ -138,7 +143,7 @@ South Loop, Field Museum, Chinatown
             if move[1] in city[currentcity]:
                 #set the current room to the new room
                 currentcity = city[currentcity][move[1]]
-                #there is no door (link) to the new room
+                # setting random enemy in the city and calling combat func
                 randomEnemy(currentcity, my_health, my_power)
             else:
                 print('You can\'t go that way!')
@@ -150,7 +155,7 @@ South Loop, Field Museum, Chinatown
                 #add the item to their inventory
                 inventory += [move[1]]
                 #display a helpful message
-                print(move[1] + ' got!')
+                print(f"You just picked up {move[1]}!")
                 #delete the item from the room
                 del city[currentcity]['item']
             #otherwise, if the item isn't there to get
