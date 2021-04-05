@@ -41,15 +41,15 @@ def combat(rand_enemy, my_health, my_power):
     
     while True:
         
-        if enemy_health <= 0:
-            print("Congratulations you saved the city from villains")
+        if enemy_health <= 0 and enemy_health < my_health:
+            print(f"Congratulations you killed {rand_enemy} and saved the city from villains")
             sys.exit()
         elif my_health <= 0:
-            print("GAME OVER, Villains got the city!")
+            print(f"GAME OVER, {rand_enemy} killed you!")
             sys.exit()
         
         print(f"Fighting {rand_enemy}")
-        print(f"Your health: {my_health}, damage: {my_power}, armory: {inventory}")
+        print(f"Your health: {my_health}, damage: {my_power}, inventory: {inventory}")
         print(f"{rand_enemy}'s health: {enemy_health} and damage: {enemy_power}")
         
         action = input('''Enter <p> to use your power
@@ -61,13 +61,13 @@ def combat(rand_enemy, my_health, my_power):
         if action.lower() == 'p':
             enemy_health -= my_power
             my_health -= enemy_power
-        elif action.lower() == 'a':
+        elif action.lower() == 'a' and len(inventory) != 0:
             weapon = input(f"Select armory to fight from inventory: {inventory} ")
             if weapon in inventory:
                 my_health -= enemy_power
                 enemy_health -= armory[weapon]['damage']
                 inventory.remove(weapon)
-        elif action.lower() == 'h':
+        elif action.lower() == 'h' and len(inventory) != 0:
             # health increased if helmet, armor or yogurt gets picked up
             strength = input(f"Select item to boost health: {inventory} ")
             if strength in inventory:
