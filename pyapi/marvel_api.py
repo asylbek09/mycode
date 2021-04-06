@@ -4,7 +4,8 @@ import time
 import requests
 import hashlib
 
-# to run the code enter: python3 .\marvel_api.py --dev C:/Users/asylb/OneDrive/Documents/TLG/Python/marvel.priv --pub C:/Users/asylb/OneDrive/Documents/TLG/Python/marvel.pub --hero wolverine
+# to run the code enter: 
+# python3 .\marvel_api.py --dev C:/Users/asylb/OneDrive/Documents/TLG/Python/marvel.priv --pub C:/Users/asylb/OneDrive/Documents/TLG/Python/marvel.pub --hero wolverine
 
 ## Define the API here
 XAVIER = 'http://gateway.marvel.com/v1/public/characters'
