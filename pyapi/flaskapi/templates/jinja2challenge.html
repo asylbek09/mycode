@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    {% for item in pages %}
+    <span>{{ item.ip }}</span>
+    <span>{{ item.fqdn }}</span>
+    <span>#</span>
+    <span>{{ item.hostname }}</span>
+    <p></p>
+    {% endfor %}
+  </body>
+</html>
