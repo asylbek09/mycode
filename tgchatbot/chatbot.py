@@ -5,15 +5,11 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, Callb
 
 def start(update: Update, _: CallbackContext):
     """Send a message when the command /start is issued."""
-    user = update.effective_user
-    update.message.reply_markdown_v2(
-        fr'Hi {user.mention_markdown_v2()}\!',
-        reply_markup=ForceReply(selective=True),
-    )
-
+    update.message.reply_text('Hello and lets chat!')
+    
 def help_command(update: Update, _: CallbackContext):
     """Send a message when the command /help is issued."""
-    update.message.reply_text('Help!')
+    update.message.reply_text('Help is on the way! Activate the dialogflow!')
 
 def echo(update: Update, _: CallbackContext):
     """Echo the user message."""
