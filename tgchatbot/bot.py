@@ -1,0 +1,33 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# Options
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+import apiai, json
+with open('C:/Users/asylb/OneDrive/Documents/TLG/Python/api keys/telegramKey.txt', 'r') as f:
+    tokenKey = f.read()
+updater = Updater(token=tokenKey) # Telegram API Token
+dispatcher = updater.dispatcher
+
+def startCommand(bot, update):
+    bot.send_message(chat_id=update.message.chat_id, text='Hello, do you want to talk?')
+def textMessage(bot, update):
+    request = apiai.ApiAI('YOURE DIALOGFLOW TOKEN').text_request() # Dialogflow API Token
+    request.lang = 'en' # Request language
+    request.session_id = 'YoureBot' # ID dialog session (for bot training)
+    request.query = update.message.text
+    responseJson = json.loads(request.getresponse().read().decode('utf-8'))
+    response = responseJson['result']['fulfillment']['speech'] # Take JSON answer
+    if response:
+        bot.send_message(chat_id=update.message.chat_id, text=response)
+    else:
+        bot.send_message(chat_id=update.message.chat_id, text='I dont understand!')
+# Handlers
+start_command_handler = CommandHandler('start', startCommand)
+text_message_handler = MessageHandler(Filters.text, textMessage)
+# Add handlers to the dispatcher
+dispatcher.add_handler(start_command_handler)
+dispatcher.add_handler(text_message_handler)
+# Start update search
+updater.start_polling(clean=True)
+# Stops the bot
+updater.idle()
